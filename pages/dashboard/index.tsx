@@ -1,5 +1,5 @@
 import { Box, useMediaQuery, useTheme } from '@mui/material';
-import { gridTemplateLarge, gridTemplateSmall } from './_gridTemplate';
+import { gridTemplateLarge, gridTemplateSmall } from '../../components/layout/gridTemplate';
 import Row1 from './_Row1';
 import Row2 from './_Row2';
 import Row3 from './_Row3';
