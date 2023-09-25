@@ -1,8 +1,8 @@
 import { Box, useMediaQuery, useTheme } from '@mui/material';
-import { gridTemplateLarge, gridTemplateSmall } from './gridTemplate';
-import Row1 from './Row1';
-import Row2 from './Row2';
-import Row3 from './Row3';
+import { gridTemplateLarge, gridTemplateSmall } from './_gridTemplate';
+import Row1 from './_Row1';
+import Row2 from './_Row2';
+import Row3 from './_Row3';
 import { useState, useEffect } from 'react';
 import { GetKpisResponse } from 'pages/api/types';
 import { GetProductsResponse } from 'pages/api/types';
