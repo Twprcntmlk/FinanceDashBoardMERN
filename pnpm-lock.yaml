@@ -23,6 +23,9 @@ dependencies:
   '@mui/material':
     specifier: ^5.14.10
     version: 5.14.10(@emotion/react@11.11.1)(@emotion/styled@11.11.0)(@types/react@18.0.11)(react-dom@18.2.0)(react@18.2.0)
+  '@mui/system':
+    specifier: ^5.14.10
+    version: 5.14.10(@emotion/react@11.11.1)(@emotion/styled@11.11.0)(@types/react@18.0.11)(react@18.2.0)
   '@mui/x-data-grid':
     specifier: ^6.15.0
     version: 6.15.0(@mui/material@5.14.10)(@mui/system@5.14.10)(@types/react@18.0.11)(react-dom@18.2.0)(react@18.2.0)
@@ -2520,7 +2523,7 @@ packages:
   /dom-helpers@3.4.0:
     resolution: {integrity: sha512-LnuPJ+dwqKDIyotW1VzmOZ5TONUN7CwkCR5hrgawTUbkBGYdeoNLZo6nNfGkCrjtE1nXXaj7iMMpDa8/d9WoIA==}
     dependencies:
-      '@babel/runtime': 7.18.3
+      '@babel/runtime': 7.22.15
     dev: false
 
   /dom-helpers@5.2.1:
