@@ -49,9 +49,9 @@ const Dashboard = () => {
       });
   }, []);
 
-  console.log(kpiData[0]);
-  console.log(productData[0]);
-  console.log(transactionData[0]);
+  // console.log(kpiData[0]);
+  // console.log(productData[0]);
+  // console.log(transactionData[0]);
   // To display the fetched data (for debugging purposes)
   // ... rest of your component
   const mediumScreens = useMediaQuery('(min-width:1200px)');
@@ -75,7 +75,7 @@ const Dashboard = () => {
             }
       }
     >
-      <Row1 />
+      <Row1 dataKpi={kpiData}/>
       <Row2 />
       <Row3 />
     </Box>

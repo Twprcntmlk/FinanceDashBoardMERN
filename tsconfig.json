@@ -32,6 +32,6 @@
     "tailwind.config.js",
     "src/**/*.ts",
     "src/**/*.tsx"
-  ],
+, "pages/api/helper.ts"  ],
   "exclude": ["node_modules"]
 }
