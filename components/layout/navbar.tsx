@@ -1,64 +1,52 @@
-import { useSession, signIn, signOut } from 'next-auth/react';
-import { useState } from 'react';
-import { LoadingDots } from '@/components/icons';
-import Image from 'next/image';
-import { MenuIcon } from '@heroicons/react/outline';
+import React, { useState } from 'react';
 import Link from 'next/link';
+import { Box, Typography, useTheme } from '@mui/material';
+import FlexBetweenBox from './FlexBetweenBox';
+import PixIcon from '@mui/icons-material/Pix';
 
-export default function Navbar({
-  setSidebarOpen
-}: {
-  setSidebarOpen: (open: boolean) => void;
-}) {
-  const { data: session, status } = useSession();
-  const [loading, setLoading] = useState(false);
+const Navbar = () => {
+  const { palette } = useTheme();
+  const [selected, setSelected] = useState('dashboard');
 
   return (
-    <nav
-      className="absolute right-0 w-full flex items-center justify-between md:justify-end px-4 h-16"
-      aria-label="Navbar"
-    >
-      <button
-        type="button"
-        className="inline-flex md:hidden items-center justify-center rounded-md text-gray-700 hover:text-gray-900 focus:outline-none focus:ring-0"
-        onClick={() => setSidebarOpen(true)}
-      >
-        <span className="sr-only">Open sidebar</span>
-        <MenuIcon className="h-6 w-6" aria-hidden="true" />
-      </button>
-      {status !== 'loading' &&
-        (session?.user ? (
-          <Link href={`/${session.username}`}>
-            <a className="w-8 h-8 rounded-full overflow-hidden">
-              <Image
-                src={
-                  session.user.image ||
-                  `https://avatar.tobi.sh/${session.user.name}`
-                }
-                alt={session.user.name || 'User'}
-                width={300}
-                height={300}
-                placeholder="blur"
-                blurDataURL="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQYV2PYsGHDfwAHNAMQumvbogAAAABJRU5ErkJggg=="
-              />
-            </a>
-          </Link>
-        ) : (
-          <button
-            disabled={loading}
-            onClick={() => {
-              setLoading(true);
-              signIn('github', { callbackUrl: `/profile` });
+    <FlexBetweenBox mb="0.25rem" p="0.5rem 0rem" color={palette.grey[300]}>
+      <FlexBetweenBox gap="0.75rem">
+        <PixIcon sx={{ fontSize: '28px' }} />
+        <Typography variant="h4" fontSize="16px">
+          AI DashBoard
+        </Typography>
+      </FlexBetweenBox>
+
+      <FlexBetweenBox gap="2rem">
+        <Box sx={{ '&:hover': { color: palette.primary[100] } }}>
+          <Link
+            href="/"
+            onClick={() => setSelected('dashboard')}
+            style={{
+              cursor: 'pointer',
+              color: selected === 'dashboard' ? 'inherit' : palette.grey[700],
+              textDecoration: 'inherit'
             }}
-            className={`${
-              loading
-                ? 'bg-gray-200 border-gray-300'
-                : 'bg-black hover:bg-white border-black'
-            } w-36 h-8 py-1 text-white hover:text-black border rounded-md text-sm transition-all`}
           >
-            {loading ? <LoadingDots color="gray" /> : 'Log in with GitHub'}
-          </button>
-        ))}
-    </nav>
+            Dashboard
+          </Link>
+        </Box>
+        <Box sx={{ '&:hover': { color: palette.primary[100] } }}>
+          <Link
+            href="/predictions"
+            onClick={() => setSelected('predictions')}
+            style={{
+              cursor: 'pointer',
+              color: selected === 'predictions' ? 'inherit' : palette.grey[700],
+              textDecoration: 'inherit'
+            }}
+          >
+            Predictions
+          </Link>
+        </Box>
+      </FlexBetweenBox>
+    </FlexBetweenBox>
   );
-}
+};
+
+export default Navbar;

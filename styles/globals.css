@@ -1,4 +1,4 @@
-@tailwind base;
+/* @tailwind base;
 
 .directory-divide-y > li:not(:last-child):after {
   content: '';
@@ -16,4 +16,4 @@
   .overflow-hidden {
     -webkit-mask-image: -webkit-radial-gradient(white, black);
   }
-}
+} */
