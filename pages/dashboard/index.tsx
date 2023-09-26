@@ -1,5 +1,8 @@
 import { Box, useMediaQuery, useTheme } from '@mui/material';
-import { gridTemplateLarge, gridTemplateSmall } from '../../components/layout/gridTemplate';
+import {
+  gridTemplateLarge,
+  gridTemplateSmall
+} from '../../components/layout/gridTemplate';
 import Row1 from './_Row1';
 import Row2 from './_Row2';
 import Row3 from './_Row3';
@@ -13,8 +16,9 @@ type Props = unknown;
 const Dashboard = () => {
   const [kpiData, setKpiData] = useState<GetKpisResponse[]>([]);
   const [productData, setProductData] = useState<GetProductsResponse[]>([]);
-  const [transactionData, setTransactionData] =
-    useState<GetTransactionsResponse[]>([]);
+  const [transactionData, setTransactionData] = useState<
+    GetTransactionsResponse[]
+  >([]);
 
   useEffect(() => {
     fetch('/api/kpis')
@@ -61,6 +65,7 @@ const Dashboard = () => {
       height="100%"
       display="grid"
       gap="1.5rem"
+      padding="1.5rem"
       sx={
         mediumScreens
           ? {
@@ -75,9 +80,15 @@ const Dashboard = () => {
             }
       }
     >
-      <Row1 dataKpi={kpiData}/>
-      <Row2 />
-      <Row3 />
+      {/* productData={productData}
+      transactionData={transactionData} */}
+      <Row1 dataKpi={kpiData} />
+      <Row2 dataKpi={kpiData} productData={productData} />
+      <Row3
+        dataKpi={kpiData}
+        productData={productData}
+        transactionData={transactionData}
+      />
     </Box>
   );
 };

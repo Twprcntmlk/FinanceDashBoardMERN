@@ -1,7 +1,7 @@
 import type { NextApiRequest, NextApiResponse } from 'next';
 import { getProducts } from 'lib/api/products';
 import { GetProductsResponse } from './types'
-import divideNumbersBy100 from './helper';
+// import {resultsAsString, divideNumbersBy100} from './helper';
 
 export default async function handler(
   req: NextApiRequest,
@@ -11,8 +11,7 @@ export default async function handler(
     try {
       const result= await getProducts();
       if (result) {
-        console.log(result);
-        return res.status(200).json(divideNumbersBy100(result));
+        return res.status(200).json(result);
       } else {
         return res.status(404).json({ message: 'Kpis not found' });
       }

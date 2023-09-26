@@ -12,7 +12,6 @@ export async function getProducts(): Promise<GetProductsResponse[] | null> {
     .find()
     .toArray()) as unknown as GetProductsResponse[];
   if (results) {
-    console.log(results);
     return results;
   } else {
     return null;

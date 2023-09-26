@@ -17,7 +17,6 @@ export async function getTransactions(): Promise<GetTransactionsResponse[] | nul
     .toArray())as unknown as GetTransactionsResponse[];
 
   if (results) {
-    console.log(results)
     return results;
   } else {
     return null;

@@ -12,7 +12,6 @@ export async function getKpis(): Promise<GetKpisResponse[] | null> {
     .find()
     .toArray()) as unknown as GetKpisResponse[];
   if (results) {
-    console.log(results);
     return results;
   } else {
     return null;

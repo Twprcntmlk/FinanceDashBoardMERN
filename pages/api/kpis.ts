@@ -1,7 +1,7 @@
 import type { NextApiRequest, NextApiResponse } from 'next';
 import { getKpis } from 'lib/api/kpis';
-import { GetKpisResponse } from './types'
-import divideNumbersBy100 from './helper';
+import { GetKpisResponse } from './types';
+// import {resultsAsString, divideNumbersBy100} from './helper';
 
 export default async function handler(
   req: NextApiRequest,
@@ -9,10 +9,9 @@ export default async function handler(
 ) {
   if (req.method === 'GET') {
     try {
-      const result:GetKpisResponse[] = await getKpis() || []
-      console.log(result);
+      const result: GetKpisResponse[] = (await getKpis()) || [];
       if (result) {
-        return res.status(200).json(divideNumbersBy100(result));
+        return res.status(200).json(result);
       } else {
         return res.status(404).json({ message: 'Kpis not found' });
       }

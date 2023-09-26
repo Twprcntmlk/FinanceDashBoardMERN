@@ -39,11 +39,11 @@ const Row1 = ({ dataKpi }: { dataKpi: GetKpisResponse[] }) => {
         name:
           month.substring(0, 3).charAt(0).toUpperCase() +
           month.substring(0, 3).slice(1),
-        revenue: revenue
+        revenue: revenue/100
       };
     });
   }, [dataKpi]);
-  console.log(revenue);
+
   const revenueExpenses: RevenueExpensesItem[] | [] = useMemo(() => {
     if (!dataKpi || dataKpi.length === 0) {
       return [];
@@ -55,13 +55,13 @@ const Row1 = ({ dataKpi }: { dataKpi: GetKpisResponse[] }) => {
           name:
             month.substring(0, 3).charAt(0).toUpperCase() +
             month.substring(0, 3).slice(1),
-          revenue: revenue,
-          expenses: expenses
+          revenue: revenue/100,
+          expenses: expenses/100
         };
       })
     );
   }, [dataKpi]);
-  console.log(revenueExpenses);
+
   const RevAndExpChange = (revenueExpenses?: RevenueExpensesItem[] | []) => {
     if (!revenueExpenses || !revenueExpenses[11]) return '0%';
 
@@ -84,8 +84,8 @@ const Row1 = ({ dataKpi }: { dataKpi: GetKpisResponse[] }) => {
           name:
             month.substring(0, 3).charAt(0).toUpperCase() +
             month.substring(0, 3).slice(1),
-          revenue: revenue,
-          profit: (revenue - expenses).toFixed(2)
+          revenue: revenue/100,
+          profit: ((revenue - expenses)/100).toFixed(2)
         };
       })
     );
@@ -93,7 +93,7 @@ const Row1 = ({ dataKpi }: { dataKpi: GetKpisResponse[] }) => {
 
   return (
     <>
-      <DashBoardBox gridArea="a" height={540}>
+      <DashBoardBox gridArea="a" height={400}>
         <BoxHeaderBox
           title="Revenue and Expenses"
           subtitle="top line represents revenue, bottom line represents expenses"
@@ -168,7 +168,7 @@ const Row1 = ({ dataKpi }: { dataKpi: GetKpisResponse[] }) => {
           </AreaChart>
         </ResponsiveContainer>
       </DashBoardBox>
-      <DashBoardBox gridArea="b" height={540}>
+      <DashBoardBox gridArea="b" height={400}>
         <BoxHeaderBox
           title="Profit and Revenue"
           subtitle="top line represents revenue, bottom line represents expenses"
@@ -227,13 +227,13 @@ const Row1 = ({ dataKpi }: { dataKpi: GetKpisResponse[] }) => {
           </LineChart>
         </ResponsiveContainer>
       </DashBoardBox>
-      <DashBoardBox gridArea="c" height={400}>
+      <DashBoardBox gridArea="c" height={300}>
         <BoxHeaderBox
           title="Revenue Month by Month"
           subtitle="graph representing the revenue month by month"
           sideText="+4%"
         />
-        <ResponsiveContainer width="100%" height="100%">
+        <ResponsiveContainer width="100%">
           <BarChart
             width={500}
             height={400}
