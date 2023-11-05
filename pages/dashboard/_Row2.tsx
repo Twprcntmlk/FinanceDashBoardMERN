@@ -146,7 +146,6 @@ const Row2 = ({
         </ResponsiveContainer>
       </DashBoardBox>
       <DashBoardBox gridArea="e" height={200}>
-
         <BoxHeaderBox title="Campaigns and Targets" sideText="+4%" />
         <FlexBetweenBox mt="0.25rem" gap="1.5rem" pr="1rem">
           <DynamicPieChart pieData={pieData} pieColors={pieColors} />
