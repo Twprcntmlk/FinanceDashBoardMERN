@@ -93,14 +93,14 @@ const Row3 = ({
         (params.value as Array<string>).length
     }
   ];
-  if (pieChartData) {
-    console.log(pieChartData[0]);
-  }
-  console.log(dataKpi);
-  console.log(productData);
-  console.log(transactionData);
-  console.log(productColumns);
-  console.log(transactionColumns);
+  // if (pieChartData) {
+  //   console.log(pieChartData[0]);
+  // }
+  // console.log(dataKpi);
+  // console.log(productData);
+  // console.log(transactionData);
+  // console.log(productColumns);
+  // console.log(transactionColumns);
 
   return (
     <>

@@ -16,7 +16,6 @@ export default async function handler(
         return res.status(404).json({ message: 'Kpis not found' });
       }
     } catch (e: any) {
-      console.log(e);
       return res.status(500).json({
         error: e.toString()
       });
